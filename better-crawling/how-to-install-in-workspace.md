@@ -1,6 +1,6 @@
 # How to install in workspace
 
-To add to your workspace, please add the following to your `build.gralde` :
+To add to your workspace, please add the following to your `build.gradle` :
 
 ```gradle
 repositories {

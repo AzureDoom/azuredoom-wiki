@@ -42,7 +42,7 @@ These additions enhance the capabilities of AzureLib for various creative applic
 
 ## Installation&#x20;
 
-To add to your workspace, please add the following to your `build.gralde` :
+To add to your workspace, please add the following to your `build.gradle` :
 
 <pre class="language-gradle"><code class="lang-gradle">repositories {
     // The Maven with the mods source
