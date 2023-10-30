@@ -30,13 +30,13 @@ This library is compatible with the following Minecraft versions:
 
 In my fork, I've removed the example content and introduced some additional features, including:
 
-1. [A built-in Configuration library for Fabric 1.19.4+, Forge/NeoForge 1.20.1](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/config/TestingConfig.java).
-2. [Customized navigation to address the issue of mobs with large hitboxes spinning](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/ai/pathing/AzureNavigation.java).
-3. [An exclusive light source block that persists for half a tick.](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/entities/TickingLightBlock.java) (I utilize this for my various mods to illuminate projectiles like flares or simulate a muzzle flash.)
-4. [My foundational gun code](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/items/BaseGunItem.java).
-5. [My mob growth system](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/helper/Growable.java), as seen in [`Gigeresque`](https://modrinth.com/mod/gigeresque) and [`Aftershock`](https://modrinth.com/mod/aftershock), to transform entities into different entities.
+1. [A built-in Configuration library for Fabric 1.19.4+, Forge/NeoForge 1.20.1](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/config/TestingConfig.java).
+2. [Customized navigation to address the issue of mobs with large hitboxes spinning](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/ai/pathing/AzureNavigation.java).
+3. [An exclusive light source block that persists for half a tick.](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/entities/TickingLightBlock.java) (I utilize this for my various mods to illuminate projectiles like flares or simulate a muzzle flash.)
+4. [My foundational gun code](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/items/BaseGunItem.java).
+5. [My mob growth system](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/helper/Growable.java), as seen in [`Gigeresque`](https://modrinth.com/mod/gigeresque) and [`Aftershock`](https://modrinth.com/mod/aftershock), to transform entities into different entities.
 6. [A feature enabling loading another file within the same animation file (developed by the CQR developer)](how-to-use-the-inclusion-feature-in-animation-files.md).
-7. [A unique vibration system that eliminates particle effects, allowing any mob to emit vibrations similar to the warden's](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/helper/AzureVibrationUser.java).
+7. [A unique vibration system that eliminates particle effects, allowing any mob to emit vibrations similar to the warden's](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/helper/AzureVibrationUser.java).
 
 These additions enhance the capabilities of AzureLib for various creative applications.
 
