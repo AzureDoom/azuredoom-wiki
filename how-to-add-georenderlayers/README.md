@@ -12,4 +12,4 @@ public class ExampleRenderer extends GeoEntityRenderer<ExampleEntity> {
 }
 ```
 
-You can find the complete list of build-in Geo renders [`here`](https://github.com/AzureDoom/AzureLib/tree/1.20/Fabric/src/main/java/mod/azure/azurelib/renderer/layer).
+You can find the complete list of build-in Geo renders [`here`](https://github.com/AzureDoom/AzureLib/tree/1.20/common/src/main/java/mod/azure/azurelib/renderer/layer).
