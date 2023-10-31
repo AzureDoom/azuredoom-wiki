@@ -1,6 +1,6 @@
 # Block and Items Layer
 
-[`BlockAndItemGeoLayer`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/renderer/layer/ItemArmorGeoLayer.java) has built-in functionality for allowing your models to render with items or blocks in their hands.
+[`BlockAndItemGeoLayer`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/renderer/layer/ItemArmorGeoLayer.java) has built-in functionality for allowing your models to render with items or blocks in their hands.
 
 ## How to setup
 
