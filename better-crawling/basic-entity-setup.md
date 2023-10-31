@@ -6,7 +6,7 @@ Please see [CrawlerMonsterEntity](https://github.com/AzureDoom/Better-Crawling-M
 
 ## Setting up the Render if you are using AzureLib for your entity
 
-In your render class, in the [preRender](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/renderer/GeoRenderer.java#L195) and [postRender](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/renderer/GeoRenderer.java#L202) methods, simply add the following:
+In your render class, in the [preRender](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/renderer/GeoRenderer.java#L195) and [postRender](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/renderer/GeoRenderer.java#L202) methods, simply add the following:
 
 ```java
 @Override
