@@ -2,7 +2,7 @@
 
 ## Setting up your controller
 
-In your [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35) add [`triggerableAnim`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/animatable/SingletonGeoAnimatable.java#L84) to your controller like so
+In your [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35) add [`triggerableAnim`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/animatable/SingletonGeoAnimatable.java#L84) to your controller like so
 
 ```java
 @Override
