@@ -24,7 +24,7 @@ Supported datatypes include:
 * `String`, `String[]`
 * Enums
 * Object\
-  Objects are used for config nesting/splitting into multiple categories. Just include some `@`[`Configurable`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/config/Configurable.java) fields in the nested object instance.
+  Objects are used for config nesting/splitting into multiple categories. Just include some `@`[`Configurable`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/config/Configurable.java) fields in the nested object instance.
 
 An example of a config is
 
