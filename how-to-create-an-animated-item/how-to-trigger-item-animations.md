@@ -2,9 +2,9 @@
 
 ## Setting up your Item
 
-In your Item class, add [`SingletonGeoAnimatable.registerSyncedAnimatable`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/animatable/SingletonGeoAnimatable.java#L26) to your constructor. This is needed to sync the animations from the server to the clients.&#x20;
+In your Item class, add [`SingletonGeoAnimatable.registerSyncedAnimatable`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/animatable/SingletonGeoAnimatable.java#L26) to your constructor. This is needed to sync the animations from the server to the clients.&#x20;
 
-Next in your [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35) add [`triggerableAnim`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/animatable/SingletonGeoAnimatable.java#L84) to your controller like so
+Next in your [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35) add [`triggerableAnim`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/animatable/SingletonGeoAnimatable.java#L84) to your controller like so
 
 ```java
 @Override
