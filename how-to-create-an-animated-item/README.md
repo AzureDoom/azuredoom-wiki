@@ -4,11 +4,11 @@ This page will not cover how to code an Item from the ground up, only how to add
 
 ## Needed Steps in Item class
 
-To start, you must implement [`GeoItem`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/animatable/GeoItem.java)
+To start, you must implement [`GeoItem`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/animatable/GeoItem.java)
 
-Override [`getAnimatableInstanceCache`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L42C39-L42C39) and [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)
+Override [`getAnimatableInstanceCache`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L42C39-L42C39) and [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)
 
-Instantiate a new [`AnimatableInstanceCache`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/core/animatable/instance/AnimatableInstanceCache.java) via [`AzureLibUtil.createInstanceCache(this)`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/util/AzureLibUtil.java) at the top of your entity class and return it in [`getAnimatableInstanceCache`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L42C39-L42C39)
+Instantiate a new [`AnimatableInstanceCache`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/instance/AnimatableInstanceCache.java) via [`AzureLibUtil.createInstanceCache(this)`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/util/AzureLibUtil.java) at the top of your entity class and return it in [`getAnimatableInstanceCache`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L42C39-L42C39)
 
 ```java
 private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
@@ -19,7 +19,7 @@ public AnimatableInstanceCache getAnimatableInstanceCache() {
 }
 ```
 
-Add any controllers you want for animations in [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)&#x20;
+Add any controllers you want for animations in [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)&#x20;
 
 ```java
 @Override
@@ -31,7 +31,7 @@ controllers.add(new AnimationController<>(this, "controllerName",
 
 ## Creating the model class
 
-Create a new class that extends [`GeoModel`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/model/GeoModel.java), then implement all the required methods:
+Create a new class that extends [`GeoModel`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/model/GeoModel.java), then implement all the required methods:
 
 ```java
 public class ExampleItemModel extends GeoModel<ExampleItem> {
@@ -61,7 +61,7 @@ public class ExampleItemModel extends GeoModel<ExampleItem> {
 
 ## Creating the renderer class
 
-Create a class that extends [`GeoItemRenderer`](https://github.com/AzureDoom/AzureLib/blob/1.20/Fabric/src/main/java/mod/azure/azurelib/renderer/GeoItemRenderer.java), then just set it like so:
+Create a class that extends [`GeoItemRenderer`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/renderer/GeoItemRenderer.java), then just set it like so:
 
 ```java
 public class ExampleItemRenderer extends GeoItemRenderer<ExampleItem > {
