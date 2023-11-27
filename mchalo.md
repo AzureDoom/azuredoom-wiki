@@ -1,11 +1,10 @@
 ---
-description: This is the home of the various mods I've made and work on.
-cover: .gitbook/assets/background.png
-coverY: 201
+cover: https://www.bisecthosting.com/images/CF/McHalo/BH_MC_Title.png
+coverY: 0
 layout:
   cover:
     visible: true
-    size: full
+    size: hero
   title:
     visible: true
   description:
@@ -13,10 +12,11 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
 
-# AzureDoom Mods Wiki
+# MCHalo
 
+Recipes:
