@@ -28,6 +28,7 @@
   * [Community Tips/How To's](readme/community-tips-how-tos/README.md)
     * [Render GeoArmor Item in GUI instead of 2D texture](readme/community-tips-how-tos/render-geoarmor-item-in-gui-instead-of-2d-texture.md)
     * [Render 2D texture in GUI for Geo Items (Fabric Only)](readme/community-tips-how-tos/render-2d-texture-in-gui-for-geo-items-fabric-only.md)
+    * [How to load Armor with Epic Fight](readme/community-tips-how-tos/how-to-load-armor-with-epic-fight.md)
 * [Better Crawling](better-crawling/README.md)
   * [How to install in workspace](better-crawling/how-to-install-in-workspace.md)
   * [Basic Entity Setup](better-crawling/basic-entity-setup.md)
