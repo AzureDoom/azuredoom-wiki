@@ -4,7 +4,9 @@ description: Thanks to VeroxUniverse for this tip!
 
 # How to load Armor with Epic Fight
 
+{% hint style="danger" %}
 Please note the custom animations on your armor are not supported in this format change.
+{% endhint %}
 
 Please review the [Getting Started with Blender Guide](https://epicfight-docs.readthedocs.io/en/latest/Guides/page3/) the Epic Fight dev provided to get the basics of Blender out of the way for this guide.
 
