@@ -1,5 +1,9 @@
 # How to use the Plugin
 
+{% hint style="danger" %}
+Models created using the 1.0.4 version and older of the plugin will require converting once 1.0.5 is released. Please convert for now to Geckolib until the update is released.
+{% endhint %}
+
 ## Creating the Model
 
 To create a new Azurelib Model, go to `File` -> `New` -> `AzureLib Animated Model`
