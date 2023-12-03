@@ -47,11 +47,14 @@ To add to your workspace, please add the following to your `build.gradle` :
 <pre class="language-gradle"><code class="lang-gradle">repositories {
     // The Maven with the mods source
     maven {url 'https://libs.azuredoom.com:4443/mods'}
+    // Needed for Fabric only at the moment
+    maven { url "https://maven.terraformersmc.com/releases" }
 }
 
 dependencies {
     //Fabric or Quilt
     modImplementation "mod.azure.azurelib:azurelib-fabric-MCVERSION:MODVERSION"
+    modApi "com.terraformersmc:modmenu:VERSION" // Fabric bug is requiring this
 
     //Forge
 <strong>    implementation fg.deobf("mod.azure.azurelib:azurelib-forge-MCVERSION:MODVERSION")
