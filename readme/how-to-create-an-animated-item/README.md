@@ -66,6 +66,7 @@ Create a class that extends [`GeoItemRenderer`](https://github.com/AzureDoom/Azu
 ```java
 public class ExampleItemRenderer extends GeoItemRenderer<ExampleItem > {
     public ExampleItemRenderer() {
+	// Register the Model class to this render
         super(new ExampleItemModel());
     }
 }
@@ -83,14 +84,17 @@ private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 // Creates the render
 @Override
 public void createRenderer(Consumer<Object> consumer) {
+	// Accepts a consumer to create a new renderer
 	consumer.accept(new RenderProvider() {
-		// Your render made above
-		private ExampleItemRenderer renderer;
+		// Your render class made above
+		private ExampleItemRenderer renderer = null;
 
 		@Override
 		public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+			// Check if renderer is null, create a new instance if so
 			if (renderer == null)
 				return new ExampleItemRenderer();
+			// Return the existing renderer if it's not null
 			return this.renderer;
 		}
 	});
@@ -98,6 +102,7 @@ public void createRenderer(Consumer<Object> consumer) {
 
 @Override
 public Supplier<Object> getRenderProvider() {
+	// Returns the above renderProvider created above
 	return renderProvider;
 }
 ```
@@ -109,13 +114,17 @@ In your Item class, add:&#x20;
 ```java
 @Override
 public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+	// Accepts a consumer to create a new renderer
 	consumer.accept(new IClientItemExtensions() {
-		private ExampleItemRenderer renderer;
+		// Your render class made above
+		private ExampleItemRenderer renderer = null;
 
 		@Override
 		public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+			// Check if renderer is null, create a new instance if so
 			if (renderer == null)
 				return new ExampleItemRenderer();
+			// Return the existing renderer if it's not null
 			return this.renderer;
 		}
 	});
