@@ -24,9 +24,9 @@ AzureLib represents a branch derived from Geckolib 4.x, serving as an animation 
 
 This library is compatible with the following Minecraft versions:
 
-* Forge: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.3, 1.19.4, and 1.20.1.
-* NeoForge: 1.20.1, 1.20.2
-* Fabric: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.3, 1.19.4, 1.20.1, and 1.20.2.
+* Forge: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, and 1.20.1.
+* NeoForge: 1.20.1, 1.20.4
+* Fabric: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, 1.20.1, and 1.20.4.
 
 In my fork, I've removed the example content and introduced some additional features, including:
 
@@ -52,15 +52,18 @@ To add to your workspace, please add the following to your `build.gradle` :
 }
 
 dependencies {
-    //Fabric or Quilt
+    //Fabric or Quilt and older
     modImplementation "mod.azure.azurelib:azurelib-fabric-MCVERSION:MODVERSION"
     modApi "com.terraformersmc:modmenu:VERSION" // Fabric bug is requiring this
 
-    //Forge
-<strong>    implementation fg.deobf("mod.azure.azurelib:azurelib-forge-MCVERSION:MODVERSION")
-</strong>		
-    //NeoForge
-    implementation fg.deobf("mod.azure.azurelib:azurelib-neo-MCVERSION:MODVERSION")
+    //Forge 1.20.1 and older
+    implementation fg.deobf("mod.azure.azurelib:azurelib-forge-MCVERSION:MODVERSION")
+  
+    //NeoForge 1.20.1
+    implementation fg.deobf("mod.azure.azurelib:azurelib-neo-MCVER:MODVER")
+  
+    //NeoForge 1.20.4+
+    implementation "mod.azure.azurelib:azurelib-neo-MCVER:MODVER"
 }
 </code></pre>
 
