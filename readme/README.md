@@ -25,8 +25,8 @@ AzureLib represents a branch derived from Geckolib 4.x, serving as an animation 
 This library is compatible with the following Minecraft versions:
 
 * Forge: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, and 1.20.1.
-* NeoForge: 1.20.1, 1.20.4
-* Fabric: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, 1.20.1, and 1.20.4.
+* NeoForge: 1.20.1, 1.20.4, 1.20.5
+* Fabric: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, 1.20.1, 1.20.4 and 1.20.5.
 
 In my fork, I've removed the example content and introduced some additional features, including:
 
