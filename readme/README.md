@@ -52,11 +52,14 @@ To add to your workspace, please add the following to your `build.gradle` :
 }
 
 dependencies {
+    //Common 1.20.1+ Latest Only
+    compileOnly "mod.azure.azurelib:azurelib-common-MCVERSION:MODVERSION"
+  
     //Fabric or Quilt and older
     modImplementation "mod.azure.azurelib:azurelib-fabric-MCVERSION:MODVERSION"
     modApi "com.terraformersmc:modmenu:VERSION" // Fabric bug is requiring this
 
-    //Forge 1.20.1 and older
+    //Forge 1.20.1 and older (Forge is no longer supported)
     implementation fg.deobf("mod.azure.azurelib:azurelib-forge-MCVERSION:MODVERSION")
   
     //NeoForge 1.20.1
