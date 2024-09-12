@@ -1,7 +1,7 @@
 # How to use the Plugin
 
 {% hint style="danger" %}
-Models created using the 1.0.4 version and older of the plugin will require converting once 1.0.5 is released. Please convert for now to Geckolib until the update is released.
+Models created using the 1.0.4 version and older of the plugin will require converting.
 {% endhint %}
 
 ## Creating the Model
@@ -10,7 +10,7 @@ To create a new Azurelib Model, go to `File` -> `New` -> `AzureLib Animated Mode
 
 To choose your model type, go to `File` -> `AzureLib Model Settings` and select your object type. Existing types are: `Enity/Block/Item`, `Armor`, and `Block/Item`(Do not use this one, will be removed in the future)
 
-If you have already created a Bedrock or Modded entity model, you can convert it to the Azurelib format by going to `File` -> `Convert Project` -> Select `AzureLib Animated Model`&#x20;
+If you have already created a Bedrock or Modded entity model, you can convert it to the Azurelib format by going to `File` -> `Convert Project` -> Select `AzureLib Animated Model`
 
 ## Switching to the Animation tab
 

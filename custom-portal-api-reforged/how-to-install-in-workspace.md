@@ -9,6 +9,9 @@ repositories {
 }
 
 dependencies {
+    // Forge 1.20.1
     implementation fg.deobf("net.kyrptonaught.customportalapi:customportalapi-reforged:MODVERSION")
+    // NeoForge 1.20.4+
+    implementation "net.kyrptonaught.customportalapi:customportalapi-reforged:MODVERSION"
 }
 ```

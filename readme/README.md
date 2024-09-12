@@ -24,17 +24,17 @@ AzureLib represents a branch derived from Geckolib 4.x, serving as an animation 
 
 This library is compatible with the following Minecraft versions:
 
-* Forge: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, and 1.20.1.
-* NeoForge: 1.20.1, 1.20.4, 1.20.6
-* Fabric: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, 1.20.1, 1.20.4 and 1.20.6.
+* Forge: 1.15.2, 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, and 1.20.1.
+* NeoForge: 1.20.1, 1.20.4, 1.20.6, and 1.21.1.
+* Fabric: 1.16.5, 1.17.1, 1.18.2, 1.19.2, 1.19.4, 1.20.1, 1.20.4, 1.20.6, and 1.21.1.
 
 In my fork, I've removed the example content and introduced some additional features, including:
 
 1. [A built-in Configuration library for Fabric 1.19.4+, Forge 1.20.1, NeoForge 1.20.1+](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/config/TestingConfig.java).
 2. [Customized navigation to address the issue of mobs with large hitboxes spinning](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/ai/pathing/AzureNavigation.java).
 3. [An exclusive light source block that persists for half a tick.](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/entities/TickingLightBlock.java) (I utilize this for my various mods to illuminate projectiles like flares or simulate a muzzle flash.)
-5. [My mob growth system](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/helper/Growable.java), as seen in [`Gigeresque`](https://modrinth.com/mod/gigeresque) and [`Aftershock`](https://modrinth.com/mod/aftershock), to transform entities into different entities.
-6. [A feature enabling loading another file within the same animation file (developed by the CQR developer)](how-to-use-the-inclusion-feature-in-animation-files.md).
+4. [My mob growth system](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/helper/Growable.java), as seen in [`Gigeresque`](https://modrinth.com/mod/gigeresque) and [`Aftershock`](https://modrinth.com/mod/aftershock), to transform entities into different entities.
+5. [A feature enabling loading another file within the same animation file (developed by the CQR developer)](how-to-use-the-inclusion-feature-in-animation-files.md)
 
 These additions enhance the capabilities of AzureLib.
 
@@ -42,7 +42,8 @@ These additions enhance the capabilities of AzureLib.
 
 To add to your workspace, please add the following to your `build.gradle` :
 
-<pre class="language-gradle"><code class="lang-gradle">repositories {
+```gradle
+repositories {
     // The Maven with the mods source
     maven {url 'https://libs.azuredoom.com:4443/mods'}
     // Needed for Fabric only at the moment
@@ -55,7 +56,6 @@ dependencies {
   
     //Fabric or Quilt and older
     modImplementation "mod.azure.azurelib:azurelib-fabric-MCVERSION:MODVERSION"
-    modApi "com.terraformersmc:modmenu:VERSION" // Fabric bug is requiring this
 
     //Forge 1.20.1 and older (Forge is no longer supported)
     implementation fg.deobf("mod.azure.azurelib:azurelib-forge-MCVERSION:MODVERSION")
@@ -66,7 +66,7 @@ dependencies {
     //NeoForge 1.20.4+
     implementation "mod.azure.azurelib:azurelib-neo-MCVER:MODVER"
 }
-</code></pre>
+```
 
 To install the AzureLIb Blockbench Plugin, follow these steps:
 

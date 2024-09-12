@@ -19,7 +19,7 @@ public AnimatableInstanceCache getAnimatableInstanceCache() {
 }
 ```
 
-Add any controllers you want for animations in [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)&#x20;
+Add any controllers you want for animations in [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)
 
 ```java
 @Override
@@ -77,51 +77,87 @@ public class ExampleArmorRenderer extends GeoArmorRenderer<ExampleItem> {
 
 ### Fabric/NeoForge/Forge 1.20.1+
 
-In your Item class, add:&#x20;
+In your Item class, add:
 
 ```java
-private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+// For versions 1.21+, Object has been replaced with RenderProvider, and there is no need to call renderProvider or getRenderProvider().
+private final Supplier<RenderProvider> renderProvider = GeoItem.makeRenderer(this);
 
-// Creates the render
+// Creates the renderer
 @Override
-public void createRenderer(Consumer<Object> consumer) {
-	consumer.accept(new RenderProvider() {
-		// Your render made above
-		private ExampleArmorRenderer renderer;
+public void createRenderer(Consumer<RenderProvider> consumer) {
+    consumer.accept(new RenderProvider() {
+        // Your custom armor renderer
+        private ExampleArmorRenderer renderer;
 
-		@Override
-		public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
-			if (renderer == null)
-				return new ExampleArmorRenderer();
-			renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-			return this.renderer;
-		}
-	});
+        /**
+         * Returns a custom humanoid armor model for the entity, based on the given equipment slot.
+         *
+         * @param livingEntity    The entity wearing the armor.
+         * @param itemStack       The item stack representing the armor.
+         * @param equipmentSlot   The equipment slot where the armor is equipped (e.g., head, chest).
+         * @param original        The original humanoid model.
+         * @return The humanoid model used for rendering the armor.
+         */
+        @Override
+        public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
+            if (renderer == null) {
+                renderer = new ExampleArmorRenderer();  // Create the renderer if it doesn't exist
+            }
+            renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
+            return this.renderer;
+        }
+    });
 }
 
+/**
+ * Returns the render provider, but for 1.21+ this method is no longer necessary.
+ * You no longer need to call getRenderProvider() or store the renderProvider.
+ *
+ * @return The render provider (not needed in 1.21+).
+ */
 @Override
-public Supplier<Object> getRenderProvider() {
-	return renderProvider;
+public Supplier<RenderProvider> getRenderProvider() {
+    return renderProvider;
 }
 ```
 
 ### Forge 1.19.4 and older
 
-In your Item class, add:&#x20;
+In your Item class, add:
 
 ```java
+/**
+ * Initializes client-side extensions for the item, including custom rendering for armor.
+ * This method sets up how the armor item should be rendered when equipped on a humanoid entity.
+ *
+ * @param consumer A {@link Consumer} that accepts an {@link IClientItemExtensions} object to handle client-side item extensions.
+ */
 @Override
 public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-	consumer.accept(new IClientItemExtensions() {
-		private ExampleItemRenderer renderer;
+    consumer.accept(new IClientItemExtensions() {
+        private ExampleItemRenderer renderer;
 
-		@Override
-		public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-			if (renderer == null)
-				return new ExampleItemRenderer();
-			renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-			return this.renderer;
-		}
-	});
+        /**
+         * Provides the humanoid armor model for the item, preparing it for rendering based on the entity and equipment slot.
+         * This method determines how the armor should be rendered when equipped on a humanoid entity.
+         *
+         * @param livingEntity    The {@link LivingEntity} wearing the armor.
+         * @param itemStack       The {@link ItemStack} representing the armor item.
+         * @param equipmentSlot   The {@link EquipmentSlot} where the armor is equipped (e.g., head, chest).
+         * @param original        The original {@link HumanoidModel} to be replaced or modified.
+         * @return The {@link HumanoidModel} used for rendering the armor, which includes custom rendering logic.
+         */
+        @Override
+        public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
+            if (renderer == null) {
+                // Create the renderer if it doesn't exist
+                renderer = new ExampleItemRenderer();
+            }
+            // Prepare the renderer with the current entity and armor information
+            renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
+            return this.renderer;
+        }
+    });
 }
 ```

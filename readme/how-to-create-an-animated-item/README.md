@@ -19,7 +19,7 @@ public AnimatableInstanceCache getAnimatableInstanceCache() {
 }
 ```
 
-Add any controllers you want for animations in [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)&#x20;
+Add any controllers you want for animations in [`registerControllers`](https://github.com/AzureDoom/AzureLib/blob/1.20/common/src/main/java/mod/azure/azurelib/core/animatable/GeoAnimatable.java#L35)
 
 ```java
 @Override
@@ -76,57 +76,83 @@ public class ExampleItemRenderer extends GeoItemRenderer<ExampleItem > {
 
 ### Fabric/NeoForge/Forge 1.20.1+
 
-In your Item class, add:&#x20;
+In your Item class, add:
 
 ```java
-private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+// For versions 1.21+, Object has been replaced with RenderProvider, and getRenderProvider() is no longer necessary.
+private final Supplier<RenderProvider> renderProvider = GeoItem.makeRenderer(this);
 
-// Creates the render
+// Creates the renderer
 @Override
-public void createRenderer(Consumer<Object> consumer) {
-	// Accepts a consumer to create a new renderer
-	consumer.accept(new RenderProvider() {
-		// Your render class made above
-		private ExampleItemRenderer renderer = null;
+public void createRenderer(Consumer<RenderProvider> consumer) {
+    // Accepts a consumer to create a new renderer
+    consumer.accept(new RenderProvider() {
+        // Your custom renderer instance
+        private ExampleItemRenderer renderer = null;
 
-		@Override
-		public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-			// Check if renderer is null, create a new instance if so
-			if (renderer == null)
-				return new ExampleItemRenderer();
-			// Return the existing renderer if it's not null
-			return this.renderer;
-		}
-	});
+        /**
+         * Returns a custom renderer for the block entity, creating a new instance if necessary.
+         * This renderer is used for rendering the block entity in a custom way.
+         *
+         * @return The {@link BlockEntityWithoutLevelRenderer} used for custom rendering of the block entity.
+         */
+        @Override
+        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+            // Check if renderer is null; create a new instance if so
+            if (renderer == null) {
+                renderer = new ExampleItemRenderer();
+            }
+            // Return the existing renderer if it's not null
+            return this.renderer;
+        }
+    });
 }
 
+/**
+ * Returns the render provider, but this method is no longer necessary for Minecraft 1.21+.
+ * In versions 1.21 and later, you no longer need to call getRenderProvider() or store the renderProvider.
+ *
+ * @return The render provider (not needed in 1.21+).
+ */
 @Override
-public Supplier<Object> getRenderProvider() {
-	// Returns the above renderProvider created above
-	return renderProvider;
+public Supplier<RenderProvider> getRenderProvider() {
+    return renderProvider;
 }
 ```
 
 ### Forge 1.19.4 and older
 
-In your Item class, add:&#x20;
+In your Item class, add:
 
 ```java
+/**
+ * Initializes client-side extensions for the item, including a custom renderer.
+ * This method sets up how the item should be rendered in the game.
+ *
+ * @param consumer A {@link Consumer} that accepts an {@link IClientItemExtensions} object to handle client-side item extensions.
+ */
 @Override
 public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-	// Accepts a consumer to create a new renderer
-	consumer.accept(new IClientItemExtensions() {
-		// Your render class made above
-		private ExampleItemRenderer renderer = null;
+    // Accepts a consumer to create a new renderer
+    consumer.accept(new IClientItemExtensions() {
+        // Your custom item renderer
+        private ExampleItemRenderer renderer = null;
 
-		@Override
-		public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-			// Check if renderer is null, create a new instance if so
-			if (renderer == null)
-				return new ExampleItemRenderer();
-			// Return the existing renderer if it's not null
-			return this.renderer;
-		}
-	});
+        /**
+         * Provides a custom renderer for the block entity, creating a new instance if it does not already exist.
+         * This method determines how the block entity should be rendered when placed in the world.
+         *
+         * @return The {@link BlockEntityWithoutLevelRenderer} used for custom rendering of the block entity.
+         */
+        @Override
+        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+            // Check if renderer is null; create a new instance if so
+            if (renderer == null) {
+                renderer = new ExampleItemRenderer();
+            }
+            // Return the existing renderer if it's not null
+            return this.renderer;
+        }
+    });
 }
 ```
