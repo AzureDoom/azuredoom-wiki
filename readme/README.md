@@ -45,7 +45,7 @@ To add to your workspace, please add the following to your `build.gradle` :
 ```gradle
 repositories {
     // The Maven with the mods source
-    maven {url 'https://libs.azuredoom.com:4443/mods'}
+    maven {url 'https://maven.azuredoom.com/mods'}
     // Needed for Fabric only at the moment
     maven { url "https://maven.terraformersmc.com/releases" }
 }
