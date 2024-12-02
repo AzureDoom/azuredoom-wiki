@@ -25,6 +25,7 @@
     * [Render 2D texture in GUI for Geo Items (Fabric Only)](readme/community-tips-how-tos/render-2d-texture-in-gui-for-geo-items-fabric-only.md)
     * [How to load Armor with Epic Fight](readme/community-tips-how-tos/how-to-load-armor-with-epic-fight.md)
     * [Adding a Conditional Bone for Armor: Displaying Custom Bones Only When Certain Armor is Equipped](readme-1/community-tips-how-tos/adding-a-conditional-bone-for-armor-displaying-custom-bones-only-when-certain-armor-is-equipped.md)
+  * [Keyframe Triggers](readme-1/keyframe-triggers.md)
 * [Custom Portal API Reforged](custom-portal-api-reforged/README.md)
   * [How to install in workspace](custom-portal-api-reforged/how-to-install-in-workspace.md)
   * [How to add a basic portal](custom-portal-api-reforged/how-to-add-a-basic-portal.md)
